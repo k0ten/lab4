@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#define n 3
+
+void f(int* arr_p) {
+    int s = 1, res = 0, t = 1, sum = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i > j && i + j < n - 1) {
+                sum += *(arr_p + i * n + j);
+                t *= *(arr_p + i * n + j);
+            }
+            if (j > i && i + j >= n) {
+                sum += *(arr_p + i * n + j);
+                t *= *(arr_p + i * n + j);
+            }
+        }
+    }
+    printf("Сумма: %d", sum);
+    printf("\nПроизведение: %d", t);
+}
+int main() {
+    int arr[n][n];
+    int* arr_p = &arr[0][0];
+    setlocale(LC_ALL, "rus");
+    printf("Введите матрицу:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("arr[%d][%d] = ", i, j);
+            scanf_s("%d", (arr_p + i * n + j));
+        }
+
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf(" %d ", *(arr_p + i * n + j));
+        }
+        printf("\n");
+    }
+    f(arr_p);
+
+
+    return 0;
+}
