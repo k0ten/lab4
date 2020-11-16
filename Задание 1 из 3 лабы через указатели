@@ -1,0 +1,38 @@
+#include <stdio.h>
+#define n 3
+void MATRIX(int A[n][n]) {
+    int k = 0;
+    for (int j = 0; j < n; j++) {if(k!=0){break;}
+
+        for (int i = 0; i < n; i++)
+
+            if (*(*(A + i) + j) == 0) {
+                k++;
+
+                printf("%d",j+1);break;
+            }
+    }
+    
+}
+
+    int main() {
+        int A[n][n];
+
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++)
+
+                scanf("%d", *(A + i) + j);
+
+        }
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++)
+
+                printf("%4d ", *(*(A + i) + j));
+
+            printf("\n");
+
+        }
+        MATRIX(A);
+    }
