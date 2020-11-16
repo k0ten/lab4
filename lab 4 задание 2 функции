@@ -3,9 +3,7 @@
 
 int max(int a, int b) {
     int max = a;
-    for (int i = 0; i < 1; i++) {
         if (b > max) { max = b; }
-    }
     return max;
 }
 void max4(int a, int b, int c, int d) {
@@ -17,5 +15,6 @@ void max4(int a, int b, int c, int d) {
 }
 
 int main() {
+
     max4(13, 500, 80, 100);
 }
